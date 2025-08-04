@@ -6,19 +6,28 @@ const PORT = 3001;
 
 app.use(cors());
 
-const API_URL = "https://1930-34-125-167-120.ngrok-free.app/"; 
+const API_URL = "https://f266236cf832.ngrok-free.app"; 
 
 app.get('/api/:modelo', async (req, res) => {
-  const { modelo } = req.params;
+  let { modelo } = req.params;
+  modelo = decodeURIComponent(modelo);
+  // Eliminar emojis y espacios
+  modelo = modelo.replace(/[\p{Emoji}\s]/gu, '');
   const { pregunta } = req.query;
 
   try {
-    const response = await axios.get(`${API_URL}${modelo}`, {
+    const response = await axios.get(`${API_URL}/${modelo}`, {
       params: { pregunta }
     });
-    res.json({ respuesta: response.data.respuesta });
+    res.json({ 
+      respuesta: response.data.respuesta,
+      modelo_limpio: modelo
+    });
   } catch (error) {
-    res.json({ respuesta: ` Error: ${error.message}` });
+    res.json({ 
+      respuesta: ` Error: ${error.message}`,
+      modelo_limpio: modelo
+    });
   }
 });
 

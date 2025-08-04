@@ -1,4 +1,4 @@
-const API_URL = "https://1930-34-125-167-120.ngrok-free.app/";  // Ajusta si cambia
+const API_URL = "https://f266236cf832.ngrok-free.app/api/";  
 
 /**
  * Obtiene una respuesta de la API externa según el modelo y la pregunta
@@ -12,10 +12,11 @@ export const getRespuesta = async (modelo, pregunta) => {
       return "Por favor, haga una pregunta.";
     }
     
+    const modeloLimpio = modelo.toLowerCase().replace(/[\p{Emoji}\s]/gu, '');
     const response = await fetch(
-      `${API_URL}${modelo.toLowerCase()}?pregunta=${encodeURIComponent(pregunta)}`
+      `${API_URL}${modeloLimpio}?pregunta=${encodeURIComponent(pregunta)}`
     );
-    
+    console.log(`Consultando modelo: ${modeloLimpio} con pregunta: ${pregunta}`);
     if (!response.ok) {
       throw new Error(`Error HTTP: ${response.status}`);
     }
