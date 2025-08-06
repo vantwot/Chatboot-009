@@ -1,4 +1,4 @@
-const API_URL = "http://localhost:3001/api/";
+const API_URL = "https://chatboot-009.onrender.com/api/";
 
 /**
  * Obtiene una respuesta de la API externa según el modelo y la pregunta
