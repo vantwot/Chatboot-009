@@ -1,4 +1,4 @@
-const API_URL = "https://f266236cf832.ngrok-free.app/api/";  
+const API_URL = "http://localhost:3001/api/";
 
 /**
  * Obtiene una respuesta de la API externa según el modelo y la pregunta

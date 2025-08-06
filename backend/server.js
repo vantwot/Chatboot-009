@@ -6,12 +6,10 @@ const PORT = 3001;
 
 app.use(cors());
 
-const API_URL = "https://f266236cf832.ngrok-free.app"; 
-
+const API_URL = "http://278db9c72719.ngrok-free.app/";  
 app.get('/api/:modelo', async (req, res) => {
   let { modelo } = req.params;
   modelo = decodeURIComponent(modelo);
-  // Eliminar emojis y espacios
   modelo = modelo.replace(/[\p{Emoji}\s]/gu, '');
   const { pregunta } = req.query;
 
