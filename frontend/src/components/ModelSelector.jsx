@@ -1,6 +1,6 @@
-import React from 'react';
+import React from "react";
 
-const models = ['🌟 Gemini', '💬 ChatGPT', '🦙 LLaMA'];
+const models = ["🌟 Gemini", "💬 ChatGPT", "🦙 LLaMA", "🐋 Deepseek"];
 
 const ModelSelector = ({ model, setModel }) => {
   return (
@@ -8,15 +8,17 @@ const ModelSelector = ({ model, setModel }) => {
       value={model}
       onChange={(e) => setModel(e.target.value)}
       style={{
-        border: 'none',
-        background: '#b71c1c',
-        color: 'white',
-        padding: '4px 8px',
-        borderRadius: '12px'
+        border: "none",
+        background: "#b71c1c",
+        color: "white",
+        padding: "4px 8px",
+        borderRadius: "12px",
       }}
     >
-      {models.map(m => (
-        <option key={m} value={m}>{m.toUpperCase()}</option>
+      {models.map((m) => (
+        <option key={m} value={m}>
+          {m.toUpperCase()}
+        </option>
       ))}
     </select>
   );
